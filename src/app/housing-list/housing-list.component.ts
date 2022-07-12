@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {HousingLocation} from "../housing-location"
 
 @Component({
@@ -14,10 +14,17 @@ export class HousingListComponent implements OnInit {
   }
 
   searchHousingLocations(searchText: string) {
-    console.log(searchText)
+    this.results = this.locationList.filter(
+      (location: HousingLocation) => location.city
+        .toLowerCase()
+        .includes(
+            searchText.toLowerCase()
+      ));
   }
 
   @Input() locationList: HousingLocation[] = [];
+
+  results: HousingLocation[] = [];
 
   
 
