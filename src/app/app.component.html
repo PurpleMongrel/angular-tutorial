@@ -5,4 +5,10 @@
   <section>
     <app-housing-list [locationList]="housingLocationList" (selectedLocationEvent)="updateSelectedLocation($event)"></app-housing-list>
   </section>
+  <article>
+    <img [src]="selectedLocation?.photo">
+    <p>{{selectedLocation?.name}}</p>
+    <p>{{selectedLocation?.availableUnits}}</p>
+    <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
+  </article>
 </main>
